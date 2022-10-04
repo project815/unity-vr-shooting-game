@@ -44,6 +44,14 @@ public class Zombie : MonoBehaviour
            
     }
 
+    public void BeAttacked()
+    {
+       
+            EnableRagdoll();
+            _currentState = ZombieState.Ragdoll;
+
+    }
+
     //랙돌이 사용되지 않을 경우 랙돌의 갖고있는 각 리지드바디의 iskinematic 활성화
     //iskinematic이 활성화 되어있으면 물리적용X
     //애니메이터, 캐릭터 컨트롤러 활성화
@@ -82,11 +90,7 @@ public class Zombie : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 20f * Time.deltaTime);//내 위치에서 toRotation 방향으로 3번째 파라미터 속도로 회전
         
         //
-        if (Input.GetMouseButton(0))
-        {
-            EnableRagdoll();
-            _currentState = ZombieState.Ragdoll;
-        }
+       
         
     }
 
@@ -94,5 +98,7 @@ public class Zombie : MonoBehaviour
     {
         
     }
+
+    
 
 }
