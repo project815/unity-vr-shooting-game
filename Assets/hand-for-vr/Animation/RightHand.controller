@@ -251,7 +251,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Blend Tree
-  m_Speed: 20
+  m_Speed: 100
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2694914990346377419}
@@ -326,7 +326,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Blend Tree
-  m_Speed: 20
+  m_Speed: 100
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2582233646359292876}
