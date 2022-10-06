@@ -1,9 +1,9 @@
-using System.Linq;
+ï»¿using System.Linq;
 using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    //Á»ºñÀÇ »óÅÂ 
+    //ì¢€ë¹„ì˜ ìƒíƒœ 
     private enum ZombieState
     {
         Walking,
@@ -11,17 +11,17 @@ public class Zombie : MonoBehaviour
         Attack
     }
 
-    //Á»ºñ°¡ ¹Ù¶óº¼ Ä«¸Ş¶ó
+    //ì¢€ë¹„ê°€ ë°”ë¼ë³¼ ì¹´ë©”ë¼
     [SerializeField]
     private Camera _camera;
 
-    //°ø°İÇÒ ¼ö ÀÖ´Â °Å¸®
+    //ê³µê²©í•  ìˆ˜ ìˆëŠ” ê±°ë¦¬
     [SerializeField]
     private float _attackArea;
 
 
-    private Rigidbody[]  _ragdollrigidbodies; // Á»ºñÀÇ ·¢µ¹ÀÌ °®°íÀÖ´Â ¸®Áöµå¹Ùµğ°¡ ´ã±æ ¹è¿­
-    private ZombieState  _currentState = ZombieState.Walking; //Á»ºñ»óÅÂÇÊµå
+    private Rigidbody[]  _ragdollrigidbodies; // ì¢€ë¹„ì˜ ë™ëŒì´ ê°–ê³ ìˆëŠ” ë¦¬ì§€ë“œë°”ë””ê°€ ë‹´ê¸¸ ë°°ì—´
+    private ZombieState  _currentState = ZombieState.Walking; //ì¢€ë¹„ìƒíƒœí•„ë“œ
     private Animator _animator;
     private CharacterController _characterController;
 
@@ -38,7 +38,7 @@ public class Zombie : MonoBehaviour
 
     private void Update()
     {
-        // Á»ºñÀÇ »óÅÂ¿¡µû¶ó ¸Å¼­µåÈ£Ãâ
+        // ì¢€ë¹„ì˜ ìƒíƒœì—ë”°ë¼ ë§¤ì„œë“œí˜¸ì¶œ
         switch (_currentState)
         {
             case ZombieState.Walking:
@@ -54,7 +54,7 @@ public class Zombie : MonoBehaviour
            
     }
 
-    //°ø°İÇÏ´Â µ¿ÀÛÀÇ ¸Å¼­µå
+    //ê³µê²©í•˜ëŠ” ë™ì‘ì˜ ë§¤ì„œë“œ
     private void AttackBehavior()
     {
         
@@ -75,9 +75,9 @@ public class Zombie : MonoBehaviour
 
     }
 
-    //·¢µ¹ÀÌ »ç¿ëµÇÁö ¾ÊÀ» °æ¿ì ·¢µ¹ÀÇ °®°íÀÖ´Â °¢ ¸®Áöµå¹ÙµğÀÇ iskinematic È°¼ºÈ­
-    //iskinematicÀÌ È°¼ºÈ­ µÇ¾îÀÖÀ¸¸é ¹°¸®Àû¿ëX
-    //¾Ö´Ï¸ŞÀÌÅÍ, Ä³¸¯ÅÍ ÄÁÆ®·Ñ·¯ È°¼ºÈ­
+    //ë™ëŒì´ ì‚¬ìš©ë˜ì§€ ì•Šì„ ê²½ìš° ë™ëŒì˜ ê°–ê³ ìˆëŠ” ê° ë¦¬ì§€ë“œë°”ë””ì˜ iskinematic í™œì„±í™”
+    //iskinematicì´ í™œì„±í™” ë˜ì–´ìˆìœ¼ë©´ ë¬¼ë¦¬ì ìš©X
+    //ì• ë‹ˆë©”ì´í„°, ìºë¦­í„° ì»¨íŠ¸ë¡¤ëŸ¬ í™œì„±í™”
     private void DisableRagdoll()
     {
         foreach(var rigidbody in _ragdollrigidbodies)
@@ -89,8 +89,8 @@ public class Zombie : MonoBehaviour
         _characterController.enabled = true;
     }
 
-    //·¢µ¹ÀÌ »ç¿ëµÉ¶§ ·¢µ¹ÀÌ °®°íÀÖ´Â °¢ ¸®Áöµå ¹ÙµğÀÇ iskinematic ºñÈ°¼ºÈ­
-    //¾Ö´Ï¸ŞÀÌÅÍ, Ä³¸¯ÅÍ ÄÁÆ®·Ñ·¯ ºñÈ°¼ºÈ­
+    //ë™ëŒì´ ì‚¬ìš©ë ë•Œ ë™ëŒì´ ê°–ê³ ìˆëŠ” ê° ë¦¬ì§€ë“œ ë°”ë””ì˜ iskinematic ë¹„í™œì„±í™”
+    //ì• ë‹ˆë©”ì´í„°, ìºë¦­í„° ì»¨íŠ¸ë¡¤ëŸ¬ ë¹„í™œì„±í™”
     private void EnableRagdoll()
     {
         foreach(var rigidbody in _ragdollrigidbodies)
@@ -102,7 +102,7 @@ public class Zombie : MonoBehaviour
     }
 
 
-    //°È´Â µ¿ÀÛÀÏ¶§ÀÇ ¸Å¼­µå
+    //ê±·ëŠ” ë™ì‘ì¼ë•Œì˜ ë§¤ì„œë“œ
     private void WalkingBehavior()
     { 
         if(AttackAreaCheck() == true)
@@ -114,7 +114,7 @@ public class Zombie : MonoBehaviour
         _animator.SetTrigger("tWalking");           
     }
 
-    //°ø°İ¹üÀ§¾È¿¡ µé¾î¿À´ÂÁö È®ÀÎÇÏ´Â ¸Å¼­µå
+    //ê³µê²©ë²”ìœ„ì•ˆì— ë“¤ì–´ì˜¤ëŠ”ì§€ í™•ì¸í•˜ëŠ” ë§¤ì„œë“œ
     private bool AttackAreaCheck()
     {
         bool attack = false;
@@ -132,14 +132,14 @@ public class Zombie : MonoBehaviour
     }
 
 
-    //ÇÃ·¹ÀÌ¾î ¹æÇâÀ» È®ÀÎÇÏ°í È¸ÀüÇÏ´Â ¸Å¼­µå
+    //í”Œë ˆì´ì–´ ë°©í–¥ì„ í™•ì¸í•˜ê³  íšŒì „í•˜ëŠ” ë§¤ì„œë“œ
     private void FindPlayerDirection()
     {
         Vector3 direction = _camera.transform.position - transform.position;
-        direction.y = 0; // ¹æÇâ¿¡ »ó°ü¾øÀÌ ¶¥¿¡ ºÙ¾îÀÖ¾î¾ß ÇÏ¹Ç·Î y = 0
-        direction.Normalize(); //¹æÇâÀº °°°í Å©±â´Â 1ÀÎ vector·Î º¯È¯ 
-        Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);  //Vector3.up ¸Ó¸®°¡ vector3.up¹æÇâÀ» ÇâÇÏ°ÔÇÏ°í direction¹æÇâÀ¸·Î È¸ÀüÇÏ´Â °ªÀ» quarternionÇüÀ¸·Î ¹İÈ¯
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 60f * Time.deltaTime);//³» À§Ä¡¿¡¼­ toRotation ¹æÇâÀ¸·Î 3¹øÂ° ÆÄ¶ó¹ÌÅÍ ¼Óµµ·Î È¸Àü
+        direction.y = 0; // ë°©í–¥ì— ìƒê´€ì—†ì´ ë•…ì— ë¶™ì–´ìˆì–´ì•¼ í•˜ë¯€ë¡œ y = 0
+        direction.Normalize(); //ë°©í–¥ì€ ê°™ê³  í¬ê¸°ëŠ” 1ì¸ vectorë¡œ ë³€í™˜ 
+        Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);  //Vector3.up ë¨¸ë¦¬ê°€ vector3.upë°©í–¥ì„ í–¥í•˜ê²Œí•˜ê³  directionë°©í–¥ìœ¼ë¡œ íšŒì „í•˜ëŠ” ê°’ì„ quarternioní˜•ìœ¼ë¡œ ë°˜í™˜
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 60f * Time.deltaTime);//ë‚´ ìœ„ì¹˜ì—ì„œ toRotation ë°©í–¥ìœ¼ë¡œ 3ë²ˆì§¸ íŒŒë¼ë¯¸í„° ì†ë„ë¡œ íšŒì „
 
     }
     private void RagdollBehavior()
