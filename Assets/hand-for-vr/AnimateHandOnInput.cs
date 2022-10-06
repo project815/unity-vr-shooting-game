@@ -5,8 +5,15 @@ using UnityEngine.InputSystem;
 
 public class AnimateHandOnInput : MonoBehaviour
 {
-    public InputActionProperty pinchAnimationAction;
-    public InputActionProperty gripAnimationAction;
+    //left일 때, Right일 때 입력받는 값이 다름.
+    //
+    public enum SelectedJoystick
+    {
+        left,
+        right,
+    };
+    public SelectedJoystick selected;
+    public InputManager inputManager;
     public Animator handAnimator;
 
     // Start is called before the first frame update
@@ -17,15 +24,25 @@ public class AnimateHandOnInput : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {   
+        if(SelectedJoystick.left == selected)
+        {
+            LeftAnimation();
+        }
+        else if(SelectedJoystick.right == selected)
+        {
+            RightAnimtion();
+        }
+    }
+
+    private void LeftAnimation()
     {
-        float triggerValue = pinchAnimationAction.action.ReadValue<float>();
-        Debug.Log(triggerValue);
-        handAnimator.SetFloat("Trigger", triggerValue);
-
-        float gripValue = gripAnimationAction.action.ReadValue<float>();
-        Debug.Log(gripValue);
-        handAnimator.SetFloat("Grip", gripValue);
-
-        
+        handAnimator.SetFloat("Trigger", inputManager.left.triggerValue);
+        handAnimator.SetFloat("Grip", inputManager.left.gripValue);
+    }
+    private void RightAnimtion()
+    {
+        handAnimator.SetFloat("Trigger", inputManager.right.triggerValue);
+        handAnimator.SetFloat("Grip", inputManager.right.gripValue);
     }
 }
