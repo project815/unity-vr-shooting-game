@@ -46,9 +46,9 @@ public class Zombie : MonoBehaviour
 
     public void BeAttacked()
     {
-       
-            EnableRagdoll();
-            _currentState = ZombieState.Ragdoll;
+
+        EnableRagdoll();
+        _currentState = ZombieState.Ragdoll;
 
     }
 
@@ -88,10 +88,7 @@ public class Zombie : MonoBehaviour
 
         Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);  //Vector3.up 머리가 vector3.up방향을 향하게하고 direction방향으로 회전하는 값을 quarternion형으로 반환
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 20f * Time.deltaTime);//내 위치에서 toRotation 방향으로 3번째 파라미터 속도로 회전
-        
-        //
-       
-        
+                    
     }
 
     private void RagdollBehavior()
