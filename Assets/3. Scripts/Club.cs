@@ -8,16 +8,7 @@ public class Club : MonoBehaviour
     private float force;
     private void OnCollisionEnter(Collision collision)
     {
-        //CharacterJoint joint = collision.gameObject.GetComponent<CharacterJoint>();
-        //if (joint != null)
-        //{
-        //    Zombie zombie = collision.gameObject.GetComponentInParent<Zombie>();
-        //    zombie.BeAttacked();
-
-        //    Vector3 forceDirection = collision.transform.position - transform.position;
-        //    forceDirection.y = 1f;
-        //    collision.rigidbody.AddForce(forceDirection.normalized * force, ForceMode.Force);
-        //}
+        
 
         Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
         CharacterHealth health = collision.gameObject.GetComponent<CharacterHealth>();   
@@ -29,7 +20,7 @@ public class Club : MonoBehaviour
 
             Vector3 forceDirection = collision.transform.position - transform.position;
             forceDirection.y = 1f;
-            collision.rigidbody.AddForce(forceDirection.normalized * force, ForceMode.Impulse);
+            rb.AddForce(forceDirection.normalized * force, ForceMode.Impulse);
         }
 
         if(health!=null)
