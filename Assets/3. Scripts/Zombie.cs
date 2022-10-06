@@ -7,12 +7,17 @@ public class Zombie : MonoBehaviour
     private enum ZombieState
     {
         Walking,
-        Ragdoll
+        Ragdoll,
+        Attack
     }
 
     //좀비가 바라볼 카메라
     [SerializeField]
     private Camera _camera;
+
+    //공격할 수 있는 거리
+    [SerializeField]
+    private float _attackArea;
 
 
     private Rigidbody[]  _ragdollrigidbodies; // 좀비의 랙돌이 갖고있는 리지드바디가 담길 배열
@@ -26,6 +31,9 @@ public class Zombie : MonoBehaviour
         _animator               = GetComponent<Animator>();
         _characterController    = GetComponent<CharacterController>();
         DisableRagdoll();
+
+
+        _attackArea = 1.8f; 
     }
 
     private void Update()
@@ -39,9 +47,24 @@ public class Zombie : MonoBehaviour
             case ZombieState.Ragdoll:
                 RagdollBehavior();
                 break;
-
+            case ZombieState.Attack:
+                AttackBehavior();
+                break;
         }
            
+    }
+
+    //공격하는 동작의 매서드
+    private void AttackBehavior()
+    {
+        
+        if (AttackAreaCheck() == false)
+        {
+            _currentState = ZombieState.Walking;
+            return;
+        }
+        FindPlayerDirection();
+        _animator.Play("Anim_Zombie_Attack");
     }
 
     public void BeAttacked()
@@ -81,16 +104,44 @@ public class Zombie : MonoBehaviour
 
     //걷는 동작일때의 매서드
     private void WalkingBehavior()
+    { 
+        if(AttackAreaCheck() == true)
+        {
+            _currentState = ZombieState.Attack;
+            return;
+        }
+        FindPlayerDirection();
+        _animator.SetTrigger("tWalking");           
+    }
+
+    //공격범위안에 들어오는지 확인하는 매서드
+    private bool AttackAreaCheck()
+    {
+        bool attack = false;
+        Vector3 direction = _camera.transform.position - transform.position;
+        if (direction.magnitude > _attackArea)
+        {
+            return attack;
+        }
+        else
+        {
+            attack = true;
+            
+        }
+        return attack;
+    }
+
+
+    //플레이어 방향을 확인하고 회전하는 매서드
+    private void FindPlayerDirection()
     {
         Vector3 direction = _camera.transform.position - transform.position;
         direction.y = 0; // 방향에 상관없이 땅에 붙어있어야 하므로 y = 0
         direction.Normalize(); //방향은 같고 크기는 1인 vector로 변환 
-
         Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);  //Vector3.up 머리가 vector3.up방향을 향하게하고 direction방향으로 회전하는 값을 quarternion형으로 반환
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 20f * Time.deltaTime);//내 위치에서 toRotation 방향으로 3번째 파라미터 속도로 회전
-                    
-    }
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 60f * Time.deltaTime);//내 위치에서 toRotation 방향으로 3번째 파라미터 속도로 회전
 
+    }
     private void RagdollBehavior()
     {
         
