@@ -6,7 +6,9 @@ public class Zombie : MonoBehaviour
     //좀비의 상태 
     private enum ZombieState
     {
+       
         Walking,
+        Attack,
         Ragdoll
     }
 
@@ -30,6 +32,7 @@ public class Zombie : MonoBehaviour
 
     private void Update()
     {
+        
         // 좀비의 상태에따라 매서드호출
         switch (_currentState)
         {
@@ -38,6 +41,9 @@ public class Zombie : MonoBehaviour
                 break;
             case ZombieState.Ragdoll:
                 RagdollBehavior();
+                break;
+            case ZombieState.Attack:
+                AttackBehavior();
                 break;
 
         }
@@ -83,22 +89,45 @@ public class Zombie : MonoBehaviour
     private void WalkingBehavior()
     {
         Vector3 direction = _camera.transform.position - transform.position;
-        direction.y = 0; // 방향에 상관없이 땅에 붙어있어야 하므로 y = 0
+        float distance = direction.magnitude;
+         // 방향에 상관없이 땅에 붙어있어야 하므로 y = 0
+        if (distance <= 1.8f)
+        {
+            _currentState = ZombieState.Attack;
+            return;
+        }
+        direction.y = 0;
         direction.Normalize(); //방향은 같고 크기는 1인 vector로 변환 
 
         Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);  //Vector3.up 머리가 vector3.up방향을 향하게하고 direction방향으로 회전하는 값을 quarternion형으로 반환
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 20f * Time.deltaTime);//내 위치에서 toRotation 방향으로 3번째 파라미터 속도로 회전
         
-        //
-       
-        
+    }
+    //공격할 때 매서드
+    private void AttackBehavior()
+    {
+        _animator.SetTrigger("tAttack");
+
+
+        if (DistanceCheck() > 1.8f)
+        {
+            _currentState = ZombieState.Walking;
+        }
+
+  
     }
 
     private void RagdollBehavior()
     {
         
     }
+    //플레이어와 좀비 위치체크
+    private float DistanceCheck()
+    {
+        Vector3 direction = _camera.transform.position - transform.position;
+        float distance = direction.magnitude;
 
-    
+        return distance;
+    }
 
 }
