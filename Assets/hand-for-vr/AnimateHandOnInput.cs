@@ -13,6 +13,8 @@ public class AnimateHandOnInput : MonoBehaviour
         right,
     };
     public SelectedJoystick selected;
+    public Transform root;
+    public Transform[] fingerBone;
     public InputManager inputManager;
     public Animator handAnimator;
 
