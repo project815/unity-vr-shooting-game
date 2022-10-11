@@ -69,7 +69,7 @@ public class Zombie : MonoBehaviour
 
     public void BeAttacked()
     {
-
+        GameManager.gInstance.AddKillCount();
         EnableRagdoll();
         _currentState = ZombieState.Ragdoll;
 

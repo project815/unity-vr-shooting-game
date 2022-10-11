@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+/*
+ TODO
+ add slider at inspector 
+ */
+
 public class CharacterHealth : MonoBehaviour ,IDamagable
 {
     [SerializeField] Slider healthSlider;
