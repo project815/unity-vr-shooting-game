@@ -26,7 +26,7 @@ public class Club : MonoBehaviour
         if(health!=null)
         {
             //call boss character OnDamage
-            if (health.tag == "Boss" || health.tag == "Enemy")
+            if (health.tag == "Boss")
             {
                 health.OnDamage(10.0f);
             }
