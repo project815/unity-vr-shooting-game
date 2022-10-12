@@ -21,6 +21,7 @@ public class Club : MonoBehaviour
             Vector3 forceDirection = collision.transform.position - transform.position;
             forceDirection.y = 1f;
             rb.AddForce(forceDirection.normalized * force, ForceMode.Impulse);
+            Debug.Log("충돌");
         }
 
         if(health!=null)
