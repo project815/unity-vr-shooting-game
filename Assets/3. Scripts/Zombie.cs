@@ -75,7 +75,7 @@ public class Zombie : MonoBehaviour
     {
         foreach(var rigidbody in _ragdollrigidbodies)
         {
-            rigidbody.isKinematic = false;
+            rigidbody.isKinematic = true;
         }
 
         _animator.enabled = true;
