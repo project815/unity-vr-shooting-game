@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using UnityEngine;
 
 public class Zombie : MonoBehaviour
@@ -50,7 +50,14 @@ public class Zombie : MonoBehaviour
             case ZombieState.Attack:
                 AttackBehavior();
                 break;
-                
+        }
+           
+    }
+
+    //공격하는 동작의 매서드
+    private void AttackBehavior()
+    {
+        
         if (AttackAreaCheck() == false)
         {
             _currentState = ZombieState.Walking;
