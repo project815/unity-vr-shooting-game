@@ -50,7 +50,18 @@ public class Zombie : MonoBehaviour
             case ZombieState.Attack:
                 AttackBehavior();
                 break;
-                
+        }       
+        if (AttackAreaCheck() == false)
+        {
+            _currentState = ZombieState.Walking;
+            return;
+        }
+        FindPlayerDirection();
+        _animator.Play("Anim_Zombie_Attack");
+    }
+    private void AttackBehavior()
+    {
+
         if (AttackAreaCheck() == false)
         {
             _currentState = ZombieState.Walking;
