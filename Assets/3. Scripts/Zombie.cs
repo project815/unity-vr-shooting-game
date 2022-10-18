@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using System.Collections;
 
 public class Zombie : MonoBehaviour
 {
@@ -24,12 +25,13 @@ public class Zombie : MonoBehaviour
     private ZombieState  _currentState = ZombieState.Walking; //좀비상태필드
     private Animator _animator;
     private CharacterController _characterController;
-
+    private EnemySpawner _enemySpawner;
    void Awake()
     {
         _ragdollrigidbodies     = GetComponentsInChildren<Rigidbody>();
         _animator               = GetComponent<Animator>();
         _characterController    = GetComponent<CharacterController>();
+        _enemySpawner           = FindObjectOfType<EnemySpawner>();
         DisableRagdoll();
 
 
@@ -51,13 +53,9 @@ public class Zombie : MonoBehaviour
                 AttackBehavior();
                 break;
         }
-           
     }
-
-    //공격하는 동작의 매서드
     private void AttackBehavior()
     {
-        
         if (AttackAreaCheck() == false)
         {
             _currentState = ZombieState.Walking;
@@ -72,6 +70,7 @@ public class Zombie : MonoBehaviour
         GameManager.gInstance.AddKillCount();
         EnableRagdoll();
         _currentState = ZombieState.Ragdoll;
+        StartCoroutine("SetActiveFalse");
 
     }
 
@@ -141,6 +140,14 @@ public class Zombie : MonoBehaviour
         Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);  //Vector3.up 머리가 vector3.up방향을 향하게하고 direction방향으로 회전하는 값을 quarternion형으로 반환
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 60f * Time.deltaTime);//내 위치에서 toRotation 방향으로 3번째 파라미터 속도로 회전
 
+    }
+
+    IEnumerator SetActiveFalse()
+    {
+        yield return new WaitForSeconds(2f);
+
+        this.gameObject.SetActive(false);
+        _enemySpawner.SetActiveFalseEnemy(this.gameObject);
     }
     private void RagdollBehavior()
     {
