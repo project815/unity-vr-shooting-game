@@ -6,12 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/1. Scenes/DemoScene.unity
+    path: Assets/1. Scenes/2. Stage1.unity
     guid: 3158941b699a79a499877ec9d7c614c6
   - enabled: 1
-    path: Assets/1. Scenes/BossMap.unity
+    path: Assets/1. Scenes/3. Boss Stage.unity
     guid: 99e6adab7f7666348a108a3043aa7cdc
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 77adbfc3b1e888c47875646077b4f956, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1b5e698da1a2cdd459d6da1580930e9a, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 6c86ce47e6105c74a9fd3c85e5252713, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 23734244e3048134399d7cf85c4c005c, type: 2}
