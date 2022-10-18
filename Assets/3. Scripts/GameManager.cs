@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //player death Action delegate
-        CharacterHealth player = FindObjectOfType<CharacterController>().GetComponent<CharacterHealth>();
-        player.onDeath += PlayerGameOver;       
+        CharacterHealth player = FindObjectOfType<Camera>().GetComponent<CharacterHealth>();
+        player.onDeath += PlayerGameOver;
     }
 
     // Update is called once per frame
