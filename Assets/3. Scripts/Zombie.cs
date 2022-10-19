@@ -35,7 +35,7 @@ public class Zombie : MonoBehaviour
         DisableRagdoll();
 
 
-        _attackArea = 1.8f; 
+        _attackArea = 1.3f; 
     }
 
     private void Update()
@@ -159,6 +159,18 @@ public class Zombie : MonoBehaviour
         
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other!=null)
+        {
+            //layer 6 == player
+            if(other.gameObject.layer == 6)
+            {
+                CharacterHealth playerHealth=other.GetComponent<CharacterHealth>();
+                playerHealth.OnDamage(10);
+            }
+        }
+    }
+
 
 }
