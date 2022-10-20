@@ -46,9 +46,9 @@ public class Zombie : MonoBehaviour
         _navMeshAgent           = GetComponent<NavMeshAgent>();
         _target                 = GameObject.Find("XR Rig");
         
-        _attackArea = 1.8f;
 
-        
+        _attackArea = 1.3f; 
+
     }
  
 
@@ -185,6 +185,18 @@ public class Zombie : MonoBehaviour
         
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other!=null)
+        {
+            //layer 6 == player
+            if(other.gameObject.layer == 6)
+            {
+                CharacterHealth playerHealth=other.GetComponent<CharacterHealth>();
+                playerHealth.OnDamage(10);
+            }
+        }
+    }
+
 
 }
