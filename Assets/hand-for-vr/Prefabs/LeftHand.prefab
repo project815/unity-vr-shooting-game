@@ -527,6 +527,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5077304461346043376}
+  - component: {fileID: 2011564715}
+  - component: {fileID: 2011564716}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -541,16 +543,72 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5565856697441398602}
-  m_LocalRotation: {x: 0.11138364, y: -0, z: -0, w: 0.9937775}
+  m_LocalRotation: {x: 0.11138215, y: 0, z: 0, w: 0.99377763}
   m_LocalPosition: {x: -0.0452, y: -0.022199988, z: -0.09889999}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 66648225762011693}
   - {fileID: 8419328632226588173}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 12.79, z: 90}
+  m_LocalEulerAnglesHint: {x: 12.79, y: 0, z: 0}
+--- !u!95 &2011564715
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565856697441398602}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24d96914d2bb9f848a408b385c9ec324, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2011564716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565856697441398602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7300b9383c3876d43845cb5fac512ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selected: 0
+  root: {fileID: 5077304461346043376}
+  fingerBone:
+  - {fileID: 4040875081514090575}
+  - {fileID: 2501473445551386390}
+  - {fileID: 7571283457926909663}
+  - {fileID: 1882333149407912852}
+  - {fileID: 5385762276688070982}
+  - {fileID: 4286693492102826254}
+  - {fileID: 304863100004509004}
+  - {fileID: 4478877235675836973}
+  - {fileID: 7966428604347709426}
+  - {fileID: 5905465727774578454}
+  - {fileID: 4710262894239803329}
+  - {fileID: 5670895709872967157}
+  - {fileID: 7286985801378978778}
+  - {fileID: 3858633809250713104}
+  - {fileID: 4455572358315998539}
+  - {fileID: 7624649954860333488}
+  - {fileID: 4407995759485363377}
+  - {fileID: 2335009461111141430}
+  - {fileID: 6457200974249823767}
+  inputManager: {fileID: 0}
+  handAnimator: {fileID: 2011564715}
 --- !u!1 &6345463945073582479
 GameObject:
   m_ObjectHideFlags: 0
