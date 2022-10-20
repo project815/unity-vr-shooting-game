@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         if(!PlayerOver)
         {
             PlayerOver = true;
+            Debug.Log("player game over");
         }
     }
     

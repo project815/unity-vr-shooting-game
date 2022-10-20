@@ -11,7 +11,7 @@ using System;
 
 public class CharacterHealth : MonoBehaviour ,IDamagable
 {
-    [SerializeField] Slider healthSlider;
+    //[SerializeField] Slider healthSlider;
     [SerializeField] float maxHp = 100f;
     [HideInInspector] public float hp { get; private set; }
 
@@ -30,7 +30,7 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
     private void OnEnable()
     {
         hp = maxHp;
-        healthSlider.value = hp;
+        //healthSlider.value = hp;
     }
 
     public void OnDamage(float damage)
@@ -39,6 +39,7 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
         {
             audioPlayer.PlayOneShot(hitClip);
             hp -= damage;
+            Debug.Log(hp);
         }
 
         if (hp <= 0 && !dead)
@@ -46,7 +47,7 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
             Die();
         }
 
-        healthSlider.value = hp;
+        //healthSlider.value = hp;
     }
 
 
