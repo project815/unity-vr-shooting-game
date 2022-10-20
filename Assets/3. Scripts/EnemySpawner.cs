@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     private int maxCount;
 
     private List<PoolObject> enemies;
-    
+
     
 
     private int currentCount;
@@ -58,12 +58,16 @@ public class EnemySpawner : MonoBehaviour
             if (poolObject != null && !poolObject.isActive)
             {
                 if (currentCount >= maxCount) return;
-                poolObject.gameObject.transform.position = spawnPosition[Random.Range(0, spawnPosition.Length)].position;
-                poolObject.gameObject.SetActive(true);
-                poolObject.isActive = true;
-               
-            
-                currentCount++;
+                
+                    poolObject.gameObject.transform.position = spawnPosition[Random.Range(0, spawnPosition.Length)].position;
+                    poolObject.gameObject.SetActive(true);
+                    poolObject.isActive = true;
+
+
+
+                    currentCount++;
+                    
+                
             }
         }
     }
