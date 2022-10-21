@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.XR;
 public class Club : MonoBehaviour
 {
+    private InputManager inputManager;
     [SerializeField]
     private float force;
     private void OnCollisionEnter(Collision collision)
     {
-        
-
         Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
         CharacterHealth health = collision.gameObject.GetComponent<CharacterHealth>();   
 
@@ -22,6 +21,7 @@ public class Club : MonoBehaviour
             forceDirection.y = 1f;
             rb.AddForce(forceDirection.normalized * force, ForceMode.Impulse);
             Debug.Log("충돌");
+            inputManager.HapticHand();
         }
 
         if(health!=null)
