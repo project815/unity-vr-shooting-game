@@ -659,6 +659,11 @@ struct InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB  : pu
 {
 };
 
+// UnityEngine.Renderer
+struct Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF  : public Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3
+{
+};
+
 // UnityEngine.VFX.VFXSpawnerCallbacks
 struct VFXSpawnerCallbacks_t047450F52C1C8F2F74DF560269C803FCD61AF9F7  : public ScriptableObject_tB3BFDB921A1B1795B38A5417D3B97A89A140436A
 {
@@ -690,6 +695,11 @@ struct Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184_StaticFields
 	CameraCallback_t844E527BFE37BC0495E7F67993E43C07642DA9DD* ___onPreRender_5;
 	// UnityEngine.Camera/CameraCallback UnityEngine.Camera::onPostRender
 	CameraCallback_t844E527BFE37BC0495E7F67993E43C07642DA9DD* ___onPostRender_6;
+};
+
+// UnityEngine.VFX.VFXRenderer
+struct VFXRenderer_t313AEBF3A8EE9FB39B2D5E614E10BE62B578F42E  : public Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF
+{
 };
 
 // UnityEngine.VFX.VisualEffect
@@ -796,6 +806,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualEffect_CheckValidVFXEventAttribute
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualEffect_SendEventFromScript_mF66550CD5B358474F957125EC4177986B661DAA0 (VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* __this, int32_t ___eventNameID0, VFXEventAttribute_tA764A595356174BA39C782A8A64B47B39FB3F518* ___eventAttribute1, const RuntimeMethod* method) ;
 // System.Void UnityEngine.VFX.VisualEffect::SendEvent(System.Int32,UnityEngine.VFX.VFXEventAttribute)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualEffect_SendEvent_m4796EBECD8CAA5FFD03EACA27049B34F4965A74F (VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* __this, int32_t ___eventNameID0, VFXEventAttribute_tA764A595356174BA39C782A8A64B47B39FB3F518* ___eventAttribute1, const RuntimeMethod* method) ;
+// System.Void UnityEngine.VFX.VisualEffect::SendEvent(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualEffect_SendEvent_m070D5CDE7555F6B203E6A8DCF879BC3403DCA15B (VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* __this, int32_t ___eventNameID0, const RuntimeMethod* method) ;
 // System.Void UnityEngine.VFX.VisualEffect::SetVector3_Injected(System.Int32,UnityEngine.Vector3&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualEffect_SetVector3_Injected_m70BB92E49B2DE1EAF30CD49903D973F58D22031C (VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* __this, int32_t ___nameID0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* ___v1, const RuntimeMethod* method) ;
 // System.Void UnityEngine.VFX.VisualEffect::SetVector4_Injected(System.Int32,UnityEngine.Vector4&)
@@ -2155,6 +2167,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualEffect_SendEvent_m8FE48624C9E9D21E
 		return;
 	}
 }
+// System.Void UnityEngine.VFX.VisualEffect::SendEvent(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualEffect_SendEvent_m070D5CDE7555F6B203E6A8DCF879BC3403DCA15B (VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* __this, int32_t ___eventNameID0, const RuntimeMethod* method) 
+{
+	{
+		int32_t L_0 = ___eventNameID0;
+		VisualEffect_SendEventFromScript_mF66550CD5B358474F957125EC4177986B661DAA0(__this, L_0, (VFXEventAttribute_tA764A595356174BA39C782A8A64B47B39FB3F518*)NULL, NULL);
+		return;
+	}
+}
+// System.Void UnityEngine.VFX.VisualEffect::Play()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualEffect_Play_m3A49E82BEE9A6F1ED48156A12908F9D13AADEE1F (VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VisualEffectAsset_t0CD57FD9980CD68033BD96DA356697F92A69E688_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		il2cpp_codegen_runtime_class_init_inline(VisualEffectAsset_t0CD57FD9980CD68033BD96DA356697F92A69E688_il2cpp_TypeInfo_var);
+		int32_t L_0 = ((VisualEffectAsset_t0CD57FD9980CD68033BD96DA356697F92A69E688_StaticFields*)il2cpp_codegen_static_fields_for(VisualEffectAsset_t0CD57FD9980CD68033BD96DA356697F92A69E688_il2cpp_TypeInfo_var))->___PlayEventID_6;
+		VisualEffect_SendEvent_m070D5CDE7555F6B203E6A8DCF879BC3403DCA15B(__this, L_0, NULL);
+		return;
+	}
+}
 // System.Boolean UnityEngine.VFX.VisualEffect::HasBool(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VisualEffect_HasBool_m880EB204D4723EB3C06B2E34A52486E678A752AA (VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* __this, int32_t ___nameID0, const RuntimeMethod* method) 
 {
@@ -2536,6 +2573,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualEffect_SetVector4_Injected_m798157
 	_il2cpp_icall_func = (VisualEffect_SetVector4_Injected_m798157124FFD71E650FB57F24F8BD2E3D45EAF5E_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.VFX.VisualEffect::SetVector4_Injected(System.Int32,UnityEngine.Vector4&)");
 	_il2cpp_icall_func(__this, ___nameID0, ___v1);
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

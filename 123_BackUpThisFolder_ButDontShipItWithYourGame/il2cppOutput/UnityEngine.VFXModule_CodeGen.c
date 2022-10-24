@@ -151,63 +151,67 @@ extern void VisualEffect_SendEventFromScript_mF66550CD5B358474F957125EC4177986B6
 extern void VisualEffect_SendEvent_m4796EBECD8CAA5FFD03EACA27049B34F4965A74F (void);
 // 0x00000047 System.Void UnityEngine.VFX.VisualEffect::SendEvent(System.String,UnityEngine.VFX.VFXEventAttribute)
 extern void VisualEffect_SendEvent_m8FE48624C9E9D21E654CF35D168E7CAE3E884D9C (void);
-// 0x00000048 System.Boolean UnityEngine.VFX.VisualEffect::HasBool(System.Int32)
+// 0x00000048 System.Void UnityEngine.VFX.VisualEffect::SendEvent(System.Int32)
+extern void VisualEffect_SendEvent_m070D5CDE7555F6B203E6A8DCF879BC3403DCA15B (void);
+// 0x00000049 System.Void UnityEngine.VFX.VisualEffect::Play()
+extern void VisualEffect_Play_m3A49E82BEE9A6F1ED48156A12908F9D13AADEE1F (void);
+// 0x0000004A System.Boolean UnityEngine.VFX.VisualEffect::HasBool(System.Int32)
 extern void VisualEffect_HasBool_m880EB204D4723EB3C06B2E34A52486E678A752AA (void);
-// 0x00000049 System.Boolean UnityEngine.VFX.VisualEffect::HasInt(System.Int32)
+// 0x0000004B System.Boolean UnityEngine.VFX.VisualEffect::HasInt(System.Int32)
 extern void VisualEffect_HasInt_m1F5851C9BEBD2A887EFF69694465401BDCD94789 (void);
-// 0x0000004A System.Boolean UnityEngine.VFX.VisualEffect::HasUInt(System.Int32)
+// 0x0000004C System.Boolean UnityEngine.VFX.VisualEffect::HasUInt(System.Int32)
 extern void VisualEffect_HasUInt_mE29D528AF718CB8C1C67491540ADC43B34D0C03E (void);
-// 0x0000004B System.Boolean UnityEngine.VFX.VisualEffect::HasFloat(System.Int32)
+// 0x0000004D System.Boolean UnityEngine.VFX.VisualEffect::HasFloat(System.Int32)
 extern void VisualEffect_HasFloat_m9F9969BD960A358735387BB53762466E14D289C6 (void);
-// 0x0000004C System.Boolean UnityEngine.VFX.VisualEffect::HasVector3(System.Int32)
+// 0x0000004E System.Boolean UnityEngine.VFX.VisualEffect::HasVector3(System.Int32)
 extern void VisualEffect_HasVector3_mADAFDFDB7950BEF5AFFB2CBD59E620B79F5431C6 (void);
-// 0x0000004D System.Boolean UnityEngine.VFX.VisualEffect::HasVector4(System.Int32)
+// 0x0000004F System.Boolean UnityEngine.VFX.VisualEffect::HasVector4(System.Int32)
 extern void VisualEffect_HasVector4_m131E022D4B376C67DA7A0CAC662BA6DE91D3E40E (void);
-// 0x0000004E System.Boolean UnityEngine.VFX.VisualEffect::HasTexture(System.Int32)
+// 0x00000050 System.Boolean UnityEngine.VFX.VisualEffect::HasTexture(System.Int32)
 extern void VisualEffect_HasTexture_m9EE102518FBB3B2ACB6F1DED92638F7FD95AE2FE (void);
-// 0x0000004F System.Void UnityEngine.VFX.VisualEffect::SetBool(System.Int32,System.Boolean)
+// 0x00000051 System.Void UnityEngine.VFX.VisualEffect::SetBool(System.Int32,System.Boolean)
 extern void VisualEffect_SetBool_m835964F6BF4751B1B517E03F3676552164E7927D (void);
-// 0x00000050 System.Void UnityEngine.VFX.VisualEffect::SetInt(System.Int32,System.Int32)
+// 0x00000052 System.Void UnityEngine.VFX.VisualEffect::SetInt(System.Int32,System.Int32)
 extern void VisualEffect_SetInt_m7F486C2E01DCAACE8D0A43661C8750822CEBD720 (void);
-// 0x00000051 System.Void UnityEngine.VFX.VisualEffect::SetUInt(System.Int32,System.UInt32)
+// 0x00000053 System.Void UnityEngine.VFX.VisualEffect::SetUInt(System.Int32,System.UInt32)
 extern void VisualEffect_SetUInt_m1A351AACE75FDAE82CF0C777F66D14D629B57B31 (void);
-// 0x00000052 System.Void UnityEngine.VFX.VisualEffect::SetFloat(System.Int32,System.Single)
+// 0x00000054 System.Void UnityEngine.VFX.VisualEffect::SetFloat(System.Int32,System.Single)
 extern void VisualEffect_SetFloat_m0AF9AD3C2CB14F8004B9F3BE3ECCCA74E3315BA2 (void);
-// 0x00000053 System.Void UnityEngine.VFX.VisualEffect::SetVector3(System.Int32,UnityEngine.Vector3)
+// 0x00000055 System.Void UnityEngine.VFX.VisualEffect::SetVector3(System.Int32,UnityEngine.Vector3)
 extern void VisualEffect_SetVector3_m9DEA0241E8C6768309AEDC1319F3BD84EAB8D246 (void);
-// 0x00000054 System.Void UnityEngine.VFX.VisualEffect::SetVector4(System.Int32,UnityEngine.Vector4)
+// 0x00000056 System.Void UnityEngine.VFX.VisualEffect::SetVector4(System.Int32,UnityEngine.Vector4)
 extern void VisualEffect_SetVector4_m94086CD93C6C371BD5C3D8A3E815C034DD02E4D1 (void);
-// 0x00000055 System.Void UnityEngine.VFX.VisualEffect::SetTexture(System.Int32,UnityEngine.Texture)
+// 0x00000057 System.Void UnityEngine.VFX.VisualEffect::SetTexture(System.Int32,UnityEngine.Texture)
 extern void VisualEffect_SetTexture_m96338B6E07291B861827B204CAE5654386D91E2C (void);
-// 0x00000056 System.Single UnityEngine.VFX.VisualEffect::GetFloat(System.Int32)
+// 0x00000058 System.Single UnityEngine.VFX.VisualEffect::GetFloat(System.Int32)
 extern void VisualEffect_GetFloat_m7DE09883BFE78C2AC343FE6EE3A7C84704121F2D (void);
-// 0x00000057 System.Boolean UnityEngine.VFX.VisualEffect::HasUInt(System.String)
+// 0x00000059 System.Boolean UnityEngine.VFX.VisualEffect::HasUInt(System.String)
 extern void VisualEffect_HasUInt_mECAE541A87CE6A7470ACA49C53FF5D5E11DF1047 (void);
-// 0x00000058 System.Boolean UnityEngine.VFX.VisualEffect::HasFloat(System.String)
+// 0x0000005A System.Boolean UnityEngine.VFX.VisualEffect::HasFloat(System.String)
 extern void VisualEffect_HasFloat_m96F1E6C9BB23E20D1BB730D3356E3E794D410B25 (void);
-// 0x00000059 System.Boolean UnityEngine.VFX.VisualEffect::HasVector4(System.String)
+// 0x0000005B System.Boolean UnityEngine.VFX.VisualEffect::HasVector4(System.String)
 extern void VisualEffect_HasVector4_m9BD809A0E57D0083CC65C3F8240FF3A55F866811 (void);
-// 0x0000005A System.Boolean UnityEngine.VFX.VisualEffect::HasTexture(System.String)
+// 0x0000005C System.Boolean UnityEngine.VFX.VisualEffect::HasTexture(System.String)
 extern void VisualEffect_HasTexture_mC57802FAF381382F66E367BC2CAA41E6BA335D2D (void);
-// 0x0000005B System.Void UnityEngine.VFX.VisualEffect::SetUInt(System.String,System.UInt32)
+// 0x0000005D System.Void UnityEngine.VFX.VisualEffect::SetUInt(System.String,System.UInt32)
 extern void VisualEffect_SetUInt_m73FB569FA8DABE4CF67EB6D4E2D21A539CE43EAC (void);
-// 0x0000005C System.Void UnityEngine.VFX.VisualEffect::SetFloat(System.String,System.Single)
+// 0x0000005E System.Void UnityEngine.VFX.VisualEffect::SetFloat(System.String,System.Single)
 extern void VisualEffect_SetFloat_mB59095AC406A373BC587551B5A4781719F608F51 (void);
-// 0x0000005D System.Void UnityEngine.VFX.VisualEffect::SetVector4(System.String,UnityEngine.Vector4)
+// 0x0000005F System.Void UnityEngine.VFX.VisualEffect::SetVector4(System.String,UnityEngine.Vector4)
 extern void VisualEffect_SetVector4_m2689F7AA23636CA94447027AFE213A03F51B261C (void);
-// 0x0000005E System.Void UnityEngine.VFX.VisualEffect::SetTexture(System.String,UnityEngine.Texture)
+// 0x00000060 System.Void UnityEngine.VFX.VisualEffect::SetTexture(System.String,UnityEngine.Texture)
 extern void VisualEffect_SetTexture_m500CB940B0427A4015A3B9E0FDE98F4F30E415BD (void);
-// 0x0000005F System.Void UnityEngine.VFX.VisualEffect::SetBool(System.String,System.Boolean)
+// 0x00000061 System.Void UnityEngine.VFX.VisualEffect::SetBool(System.String,System.Boolean)
 extern void VisualEffect_SetBool_m2AE92C97A9290E260655D557C4E68B2947E72964 (void);
-// 0x00000060 UnityEngine.VFX.VFXEventAttribute UnityEngine.VFX.VisualEffect::InvokeGetCachedEventAttributeForOutputEvent_Internal(UnityEngine.VFX.VisualEffect)
+// 0x00000062 UnityEngine.VFX.VFXEventAttribute UnityEngine.VFX.VisualEffect::InvokeGetCachedEventAttributeForOutputEvent_Internal(UnityEngine.VFX.VisualEffect)
 extern void VisualEffect_InvokeGetCachedEventAttributeForOutputEvent_Internal_mB2B1867606653A162B31F890AFFAFF2D4569904E (void);
-// 0x00000061 System.Void UnityEngine.VFX.VisualEffect::InvokeOutputEventReceived_Internal(UnityEngine.VFX.VisualEffect,System.Int32)
+// 0x00000063 System.Void UnityEngine.VFX.VisualEffect::InvokeOutputEventReceived_Internal(UnityEngine.VFX.VisualEffect,System.Int32)
 extern void VisualEffect_InvokeOutputEventReceived_Internal_m8F6FCF09BC8F3774FE1DD70A296182909A9CBCA7 (void);
-// 0x00000062 System.Void UnityEngine.VFX.VisualEffect::SetVector3_Injected(System.Int32,UnityEngine.Vector3&)
+// 0x00000064 System.Void UnityEngine.VFX.VisualEffect::SetVector3_Injected(System.Int32,UnityEngine.Vector3&)
 extern void VisualEffect_SetVector3_Injected_m70BB92E49B2DE1EAF30CD49903D973F58D22031C (void);
-// 0x00000063 System.Void UnityEngine.VFX.VisualEffect::SetVector4_Injected(System.Int32,UnityEngine.Vector4&)
+// 0x00000065 System.Void UnityEngine.VFX.VisualEffect::SetVector4_Injected(System.Int32,UnityEngine.Vector4&)
 extern void VisualEffect_SetVector4_Injected_m798157124FFD71E650FB57F24F8BD2E3D45EAF5E (void);
-static Il2CppMethodPointer s_methodPointers[99] = 
+static Il2CppMethodPointer s_methodPointers[101] = 
 {
 	EmbeddedAttribute__ctor_m9F22C8449B7FD95842EC5CD3F656507EE075FB13,
 	IsReadOnlyAttribute__ctor_m5B94C4BBFC696B56D36C02C3BCC3FE4FA7F81F2B,
@@ -280,6 +284,8 @@ static Il2CppMethodPointer s_methodPointers[99] =
 	VisualEffect_SendEventFromScript_mF66550CD5B358474F957125EC4177986B661DAA0,
 	VisualEffect_SendEvent_m4796EBECD8CAA5FFD03EACA27049B34F4965A74F,
 	VisualEffect_SendEvent_m8FE48624C9E9D21E654CF35D168E7CAE3E884D9C,
+	VisualEffect_SendEvent_m070D5CDE7555F6B203E6A8DCF879BC3403DCA15B,
+	VisualEffect_Play_m3A49E82BEE9A6F1ED48156A12908F9D13AADEE1F,
 	VisualEffect_HasBool_m880EB204D4723EB3C06B2E34A52486E678A752AA,
 	VisualEffect_HasInt_m1F5851C9BEBD2A887EFF69694465401BDCD94789,
 	VisualEffect_HasUInt_mE29D528AF718CB8C1C67491540ADC43B34D0C03E,
@@ -318,7 +324,7 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[3] =
 	{ 0x06000040, VFXOutputEventArgs_get_eventAttribute_m38C5944E1F1FC4355BB632849C6C7D56AFA4C6B0_AdjustorThunk },
 	{ 0x06000041, VFXOutputEventArgs__ctor_m4A6030F4BF7E27F5F682E0FC4211F53DF866ED56_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[99] = 
+static const int32_t s_InvokerIndices[101] = 
 {
 	8765,
 	8765,
@@ -391,6 +397,8 @@ static const int32_t s_InvokerIndices[99] =
 	3680,
 	3680,
 	4013,
+	6922,
+	8765,
 	4967,
 	4967,
 	4967,
@@ -424,7 +432,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_VFXModule_CodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_VFXModule_CodeGenModule = 
 {
 	"UnityEngine.VFXModule.dll",
-	99,
+	101,
 	s_methodPointers,
 	3,
 	s_adjustorThunks,

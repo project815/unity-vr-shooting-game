@@ -3047,6 +3047,7 @@ GameObject:
   - component: {fileID: 1324978940120798382}
   - component: {fileID: 5851240364695611233}
   - component: {fileID: -4001425701627606076}
+  - component: {fileID: 7820521137861273072}
   m_Layer: 0
   m_Name: skinless zombie
   m_TagString: Enemy
@@ -3169,6 +3170,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &7820521137861273072
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877711685968787813}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8191489
+  m_Direction: 1
+  m_Center: {x: -0, y: 0.9129005, z: 0}
 --- !u!1 &6931762972008431636
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,6 +21,25 @@ FirstOrDefault()함수의 경우 데이터 유형의 기본값을 반환함.
 
 public class InputManager : MonoBehaviour
 {
+
+    public static InputManager Instance;
+
+    void Awake()
+    {
+        //singleton
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            if(Instance!=this)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     [SerializeField] private XRNode xrLeftNode= XRNode.LeftHand;
     [SerializeField] private XRNode xrRightNode= XRNode.RightHand;
 
@@ -28,6 +47,10 @@ public class InputManager : MonoBehaviour
     private List<InputDevice> rightDevices = new List<InputDevice>();
 
     private InputDevice leftDevice, rightDevice;
+
+    [Range(0, 1)]
+    public float amplitude;
+    public float duration;
 
 
     //Button
@@ -59,6 +82,7 @@ public class InputManager : MonoBehaviour
         }   
         LeftHand();
         RightHand();
+        
     }
 
     void GetDevice()
@@ -71,7 +95,7 @@ public class InputManager : MonoBehaviour
         leftDevice = leftDevices.FirstOrDefault();
         rightDevice = rightDevices.FirstOrDefault();
     }
-
+    //진동.
     public void HapticHand()
     {
         HapticCapabilities capabilities;
@@ -82,13 +106,12 @@ public class InputManager : MonoBehaviour
         //https://docs.unity3d.com/2020.1/Documentation/ScriptReference/XR.HapticCapabilities.html
         if(leftDevice.TryGetHapticCapabilities(out capabilities))
         {
-            leftDevice.SendHapticImpulse(0, 1, 1);
+            leftDevice.SendHapticImpulse(0, amplitude, duration);
         }
         if(rightDevice.TryGetHapticCapabilities(out capabilities))
         {
-            rightDevice.SendHapticImpulse(0, 1, 1);
+            rightDevice.SendHapticImpulse(0, amplitude, duration);
         }
-        // else if(Hand == XRNode.RightHand)
 
     }
 
