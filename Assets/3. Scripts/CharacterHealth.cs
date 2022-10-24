@@ -13,7 +13,7 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
 {
     //[SerializeField] Slider healthSlider;
     [SerializeField] float maxHp = 100f;
-    [HideInInspector] public float hp { get; private set; }
+    public float hp;
 
     [SerializeField] AudioClip deathClip;
     [SerializeField] AudioClip hitClip;
