@@ -11,9 +11,13 @@ using System;
 
 public class CharacterHealth : MonoBehaviour ,IDamagable
 {
-    //[SerializeField] Slider healthSlider;
+    [SerializeField] Slider healthSlider;
     [SerializeField] float maxHp = 100f;
     [HideInInspector] public float hp { get; private set; }
+
+    [SerializeField] AudioClip HeartSlowBit;
+    [SerializeField] AudioClip HeartMidBit;
+    [SerializeField] AudioClip HeartFastBit;
 
     [SerializeField] AudioClip deathClip;
     [SerializeField] AudioClip hitClip;
@@ -30,7 +34,16 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
     private void OnEnable()
     {
         hp = maxHp;
-        //healthSlider.value = hp;
+        if(healthSlider != null)
+        healthSlider.value = hp;
+    }
+    private void Update() {
+        if(!audioPlayer.isPlaying)
+        {
+            if(hp >= 70) audioPlayer.PlayOneShot(HeartSlowBit);
+            else if(hp >= 50) audioPlayer.PlayOneShot(HeartMidBit);
+            else audioPlayer.PlayOneShot(HeartFastBit); 
+        }
     }
 
     public void OnDamage(float damage)
@@ -47,7 +60,7 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
             Die();
         }
 
-        //healthSlider.value = hp;
+        healthSlider.value = hp;
     }
 
 

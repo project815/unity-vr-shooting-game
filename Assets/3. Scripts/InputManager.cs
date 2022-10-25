@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+
 using UnityEngine.Events;
+
+using UnityEngine.XR.Interaction.Toolkit;
+
 
 using System.Linq;
 using System;
@@ -24,12 +28,33 @@ public class PrimaryButtonEvent : UnityEvent<bool>{ }
 
 public class InputManager : MonoBehaviour
 {
+
+    public static InputManager Instance;
+
+    void Awake()
+    {
+        //singleton
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            if(Instance!=this)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     [SerializeField] private XRNode xrLeftNode= XRNode.LeftHand;
     [SerializeField] private XRNode xrRightNode= XRNode.RightHand;
+
     private List<InputDevice> leftDevices = new List<InputDevice>();
     private List<InputDevice> rightDevices = new List<InputDevice>();
 
     private InputDevice leftDevice, rightDevice;
+
 
     public delegate void LHandler(bool pressDown);
     public LHandler onLight;
@@ -38,6 +63,11 @@ public class InputManager : MonoBehaviour
 
     private bool lastButtonState_L = false;
     private bool lastButtonState_R = false;
+
+    [Range(0, 1)]
+    public float amplitude;
+    public float duration;
+
 
     //Button
     [System.Serializable]
@@ -53,6 +83,25 @@ public class InputManager : MonoBehaviour
     public inputValue right;
 
 
+
+    private void OnEnable() {
+        if(!leftDevice.isValid || !rightDevice.isValid)
+        {
+            GetDevice();
+        }    
+    }
+    void Update()
+    {
+        
+        if(!leftDevice.isValid || !rightDevice.isValid)
+        {
+            GetDevice();
+        }   
+        LeftHand();
+        RightHand();
+        
+    }
+
     void GetDevice()
     {
         //GetDevicesAtXRNode :
@@ -63,38 +112,27 @@ public class InputManager : MonoBehaviour
         leftDevice = leftDevices.FirstOrDefault();
         rightDevice = rightDevices.FirstOrDefault();
     }
-
-    private void OnEnable() {
-        if(!leftDevice.isValid || !rightDevice.isValid)
-        {
-            GetDevice();
-        }    
-    }
-    // Update is called once per frame
-    void Update()
+    //진동.
+    public void HapticHand()
     {
-        if(!leftDevice.isValid || !rightDevice.isValid)
-        {
-            GetDevice();
-        }   
-        
-        /*
-        first scenario is going to get us all features.
-        List<InputFeatureUsage> features = new List<InputFeatureUsage>();
-        device.TryGetFeatureUsages(features);
+        HapticCapabilities capabilities;
 
-        foreach(var feature in features)
+        // if(Hand == XRNode.LeftHand)
+        //디바이스로부터 진동 가능여부를 불리언으로 받음.
+        //HapticCapabilities에서 6가지 properties를 받음.
+        //https://docs.unity3d.com/2020.1/Documentation/ScriptReference/XR.HapticCapabilities.html
+        if(leftDevice.TryGetHapticCapabilities(out capabilities))
         {
-            if(feature.type == typeof(bool))
-            {
-                Debug.Log("sdafsdf");
-            }
+            leftDevice.SendHapticImpulse(0, amplitude, duration);
         }
-        */
+        if(rightDevice.TryGetHapticCapabilities(out capabilities))
+        {
+            rightDevice.SendHapticImpulse(0, amplitude, duration);
+        }
 
-        LeftHand();
-        RightHand();
     }
+
+
 
     private void LeftHand()
     {
@@ -140,6 +178,7 @@ public class InputManager : MonoBehaviour
         left.primary2DAxisValue = Vector2.zero;
         InputFeatureUsage<Vector2> primary2DAxisUsage = CommonUsages.primary2DAxis;
         leftDevice.TryGetFeatureValue(primary2DAxisUsage, out left.primary2DAxisValue);
+
       
     }
 
