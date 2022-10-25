@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
-using UnityEngine.Events;
+<<<<<<< HEAD
 using UnityEngine.XR.Interaction.Toolkit;
+=======
+using UnityEngine.Events;
+>>>>>>> kbranch
 
 using System.Linq;
 using System;
@@ -52,6 +55,12 @@ public class InputManager : MonoBehaviour
 
     private InputDevice leftDevice, rightDevice;
 
+<<<<<<< HEAD
+    [Range(0, 1)]
+    public float amplitude;
+    public float duration;
+
+=======
     public delegate void LHandler(bool pressDown);
     public LHandler onLight;
     public PrimaryButtonEvent primaryButtonPress_L;
@@ -59,10 +68,7 @@ public class InputManager : MonoBehaviour
 
     private bool lastButtonState_L = false;
     private bool lastButtonState_R = false;
-
-    [Range(0, 1)]
-    public float amplitude;
-    public float duration;
+>>>>>>> kbranch
 
     //Button
     [System.Serializable]
