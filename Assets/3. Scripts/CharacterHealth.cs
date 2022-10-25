@@ -11,9 +11,13 @@ using System;
 
 public class CharacterHealth : MonoBehaviour ,IDamagable
 {
-    //[SerializeField] Slider healthSlider;
+    [SerializeField] Slider healthSlider;
     [SerializeField] float maxHp = 100f;
     public float hp;
+
+    [SerializeField] AudioClip HeartSlowBit;
+    [SerializeField] AudioClip HeartMidBit;
+    [SerializeField] AudioClip HeartFastBit;
 
     [SerializeField] AudioClip deathClip;
     [SerializeField] AudioClip hitClip;
@@ -21,6 +25,8 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
     private AudioSource audioPlayer;
     [HideInInspector] public bool dead { get; private set; }
     [HideInInspector] public event Action onDeath;
+
+    public Image HealthImage;
 
 
     private void Awake()
@@ -30,7 +36,16 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
     private void OnEnable()
     {
         hp = maxHp;
-        //healthSlider.value = hp;
+        if(healthSlider != null)
+        healthSlider.value = hp;
+    }
+    private void Update() {
+        if(!audioPlayer.isPlaying)
+        {
+            if(hp >= 70) audioPlayer.PlayOneShot(HeartSlowBit);
+            else if(hp >= 50) audioPlayer.PlayOneShot(HeartMidBit);
+            else audioPlayer.PlayOneShot(HeartFastBit); 
+        }
     }
 
     public void OnDamage(float damage)
@@ -40,6 +55,13 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
             audioPlayer.PlayOneShot(hitClip);
             hp -= damage;
             Debug.Log(hp);
+
+            HealthImage.fillAmount -= damage * 0.01f;
+            if (HealthImage.fillAmount <= 0)
+            {
+                GameObject.Find("HUD").transform.Find("FailedIcon").gameObject.SetActive(true);
+
+            }
         }
 
         if (hp <= 0 && !dead)
@@ -47,7 +69,7 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
             Die();
         }
 
-        //healthSlider.value = hp;
+        healthSlider.value = hp;
     }
 
 

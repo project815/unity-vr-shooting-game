@@ -68,11 +68,7 @@ public class Zombie : MonoBehaviour
             case ZombieState.Attack:
                 AttackBehavior();
                 break;
-
         }
-
-
-
     }
 
 
@@ -187,7 +183,6 @@ public class Zombie : MonoBehaviour
         
     }
 
-    
 
 
 }
