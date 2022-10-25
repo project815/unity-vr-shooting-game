@@ -34,6 +34,7 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
     private void OnEnable()
     {
         hp = maxHp;
+        if(healthSlider != null)
         healthSlider.value = hp;
     }
     private void Update() {
