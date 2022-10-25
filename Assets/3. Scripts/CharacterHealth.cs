@@ -26,6 +26,8 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
     [HideInInspector] public bool dead { get; private set; }
     [HideInInspector] public event Action onDeath;
 
+    public Image HealthImage;
+
 
     private void Awake()
     {
@@ -52,6 +54,13 @@ public class CharacterHealth : MonoBehaviour ,IDamagable
             audioPlayer.PlayOneShot(hitClip);
             hp -= damage;
             Debug.Log(hp);
+
+            HealthImage.fillAmount -= damage * 0.01f;
+            if (HealthImage.fillAmount <= 0)
+            {
+                GameObject.Find("HUD").transform.Find("FailedIcon").gameObject.SetActive(true);
+
+            }
         }
 
         if (hp <= 0 && !dead)
