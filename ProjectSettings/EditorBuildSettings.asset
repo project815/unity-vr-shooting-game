@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/1. Scenes/1. Cinemachine.unity
+    guid: 47fc92d41767ae149b511ced9eaf8c72
+  - enabled: 1
     path: Assets/1. Scenes/2. Stage1.unity
     guid: 3158941b699a79a499877ec9d7c614c6
   - enabled: 1
