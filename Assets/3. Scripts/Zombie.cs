@@ -66,11 +66,7 @@ public class Zombie : MonoBehaviour
             case ZombieState.Attack:
                 AttackBehavior();
                 break;
-
         }
-
-
-
     }
 
 
@@ -187,14 +183,12 @@ public class Zombie : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other!=null)
+        if(other == null) return;
+
+        if(other.gameObject.CompareTag("Player"))
         {
-            //layer 6 == player
-            if(other.gameObject.layer == 6)
-            {
-                CharacterHealth playerHealth=other.GetComponent<CharacterHealth>();
-                playerHealth.OnDamage(10);
-            }
+            CharacterHealth playerHealth = other.GetComponent<CharacterHealth>();
+            playerHealth.OnDamage(10);
         }
     }
 
