@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class Zombie : MonoBehaviour
 {
     //좀비의 상태 
-    private enum ZombieState
+    [HideInInspector]
+    public enum ZombieState
     {
         Walking,
         Ragdoll,
@@ -23,7 +24,8 @@ public class Zombie : MonoBehaviour
 
 
     private Rigidbody[]  _ragdollrigidbodies; // 좀비의 랙돌이 갖고있는 리지드바디가 담길 배열
-    private ZombieState  _currentState; //좀비상태필드
+    [HideInInspector]
+    public ZombieState  _currentState; //좀비상태필드
     private Animator _animator;
     
     private NavMeshAgent _navMeshAgent;
@@ -47,7 +49,7 @@ public class Zombie : MonoBehaviour
         _target                 = GameObject.Find("XR Rig");
         
 
-        _attackArea = 1.3f; 
+        _attackArea = 2f; 
 
     }
  
@@ -185,16 +187,7 @@ public class Zombie : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == null) return;
-
-        if(other.tag == "Player")
-        {
-            CharacterHealth playerHealth = other.GetComponent<CharacterHealth>();
-            playerHealth.OnDamage(10);
-        }
-    }
+    
 
 
 }
