@@ -63,11 +63,7 @@ public class EnemySpawner : MonoBehaviour
                     poolObject.gameObject.SetActive(true);
                     poolObject.isActive = true;
 
-
-
                     currentCount++;
-                    
-                
             }
         }
     }
