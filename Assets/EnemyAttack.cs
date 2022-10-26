@@ -12,12 +12,15 @@ public class EnemyAttack : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
+
         if (other != null)
         {
+
+            CharacterHealth playerHealth = other.GetComponent<CharacterHealth>();
+
             //layer 6 == player
             if (other.gameObject.layer == 6&&_zombie._currentState == Zombie.ZombieState.Attack)
             {
-                CharacterHealth playerHealth = other.GetComponent<CharacterHealth>();
                 playerHealth.OnDamage(10);
                 Debug.Log("PlayerAttack" + playerHealth.hp);
             }

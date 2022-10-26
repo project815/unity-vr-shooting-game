@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class AnimateHandOnInput : MonoBehaviour
 {
+
     //left일 때, Right일 때 입력받는 값이 다름.
     //
     public enum SelectedJoystick
@@ -12,17 +13,11 @@ public class AnimateHandOnInput : MonoBehaviour
         left,
         right,
     };
-    public SelectedJoystick selected;
-    public Transform root;
-    public Transform[] fingerBone;
-    public InputManager inputManager;
-    public Animator handAnimator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public InputManager inputManager;
+    public SelectedJoystick selected;
+
+    public Animator handAnimator;
 
     // Update is called once per frame
     void Update()

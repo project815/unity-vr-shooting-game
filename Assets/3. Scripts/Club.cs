@@ -31,17 +31,8 @@ public class Club : MonoBehaviour
             bloodEffect.transform.rotation = Quaternion.LookRotation(collision.contacts[0].normal);
             bloodEffect.Play();
             //사운드
+            if(!audioSource.isPlaying)
             audioSource.PlayOneShot(hitSound);
         }
-
-        if(health!=null)
-        {
-            //call boss character OnDamage
-            if (health.tag == "Boss")
-            {
-                health.OnDamage(10.0f);
-            }
-        }
-
     }
 }

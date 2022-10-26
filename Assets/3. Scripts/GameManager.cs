@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 //score, game success/fail
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager gInstance;
-
-    [SerializeField] private TMP_Text text_kill;
-
     //check player death
     public bool PlayerOver { get; private set; }
 
@@ -59,7 +55,6 @@ public class GameManager : MonoBehaviour
         if(!PlayerOver)
         {
             KillCount++;
-            text_kill.text = "Kill - " + KillCount;
         }
     }
 

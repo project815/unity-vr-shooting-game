@@ -456,6 +456,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double PlayableDirector_get_time_m97D770710A5
 	double icallRetVal = _il2cpp_icall_func(__this);
 	return icallRetVal;
 }
+// System.Double UnityEngine.Playables.PlayableDirector::get_duration()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double PlayableDirector_get_duration_mEA5C8076E9806A26B9E9075D07485CBF7046E1F6 (PlayableDirector_t895D7BC3CFBFFD823278F438EAC4AA91DBFEC475* __this, const RuntimeMethod* method) 
+{
+	typedef double (*PlayableDirector_get_duration_mEA5C8076E9806A26B9E9075D07485CBF7046E1F6_ftn) (PlayableDirector_t895D7BC3CFBFFD823278F438EAC4AA91DBFEC475*);
+	static PlayableDirector_get_duration_mEA5C8076E9806A26B9E9075D07485CBF7046E1F6_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (PlayableDirector_get_duration_mEA5C8076E9806A26B9E9075D07485CBF7046E1F6_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Playables.PlayableDirector::get_duration()");
+	double icallRetVal = _il2cpp_icall_func(__this);
+	return icallRetVal;
+}
 // System.Void UnityEngine.Playables.PlayableDirector::Evaluate()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayableDirector_Evaluate_m642F91B545243B203F7517EF5F44F09FFD3C7842 (PlayableDirector_t895D7BC3CFBFFD823278F438EAC4AA91DBFEC475* __this, const RuntimeMethod* method) 
 {

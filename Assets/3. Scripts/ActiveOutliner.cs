@@ -9,6 +9,7 @@ public class ActiveOutliner : MonoBehaviour
     public SpriteRenderer pressGrip;
     float fadeCount = 0;
 
+
     void Awake()
     {
         outline = GetComponent<Outline>();
@@ -47,7 +48,7 @@ public class ActiveOutliner : MonoBehaviour
 
     IEnumerator GripFadeout()
     {
-        while (fadeCount < 0f)
+        while (fadeCount > 0f)
         {
             fadeCount -= 0.1f;
             yield return new WaitForSeconds(0.01f);
