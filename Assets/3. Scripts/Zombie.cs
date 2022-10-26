@@ -136,8 +136,7 @@ public class Zombie : MonoBehaviour
         }
         FindPlayerDirection();
         _navMeshAgent.enabled = true;
-        float i = Random.Range(1f, 4f);
-        _navMeshAgent.SetDestination(_target.transform.position + new Vector3(i, 0, i));
+        _navMeshAgent.SetDestination(_target.transform.position);
        
         _animator.SetBool("bAttack",isAttack);
        

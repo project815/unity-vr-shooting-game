@@ -31,7 +31,6 @@ public class Club : MonoBehaviour
             bloodEffect.transform.rotation = Quaternion.LookRotation(collision.contacts[0].normal);
             bloodEffect.Play();
             //사운드
-            if(!audioSource.isPlaying)
             audioSource.PlayOneShot(hitSound);
         }
     }
