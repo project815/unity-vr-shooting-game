@@ -33,15 +33,5 @@ public class Club : MonoBehaviour
             //사운드
             audioSource.PlayOneShot(hitSound);
         }
-
-        if(health!=null)
-        {
-            //call boss character OnDamage
-            if (health.tag == "Boss")
-            {
-                health.OnDamage(10.0f);
-            }
-        }
-
     }
 }

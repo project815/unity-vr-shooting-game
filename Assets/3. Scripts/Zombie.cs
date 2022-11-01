@@ -47,10 +47,6 @@ public class Zombie : MonoBehaviour
         _enemySpawner           = FindObjectOfType<EnemySpawner>();
         _navMeshAgent           = GetComponent<NavMeshAgent>();
         _target                 = GameObject.Find("XR Rig");
-        
-
-        _attackArea = 2f; 
-
     }
  
 
@@ -78,11 +74,11 @@ public class Zombie : MonoBehaviour
 
     public void BeAttacked()
     {
-        GameManager.gInstance.AddKillCount();
         EnableRagdoll();
         _currentState = ZombieState.Ragdoll;
         StartCoroutine("SetActiveFalse");
-
+        //킬 수 증가.        
+        GameManager.gInstance.AddKillCount();
     }
     //공격하는 동작의 매서드
     private void AttackBehavior()
@@ -110,9 +106,7 @@ public class Zombie : MonoBehaviour
         }
 
         _animator.enabled = true;
-        
-        
-        
+
     }
 
     //랙돌이 사용될때 랙돌이 갖고있는 각 리지드 바디의 iskinematic 비활성화
@@ -188,6 +182,18 @@ public class Zombie : MonoBehaviour
     }
 
     
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other != null)
+        {
+            CharacterHealth playerHealth = other.GetComponent<CharacterHealth>();
 
+            //layer 6 == player
+            if (other.gameObject.layer == 6&&_currentState == ZombieState.Attack && playerHealth != null)
+            {
+                playerHealth.OnDamage(10);
+            }
+        }
+    }
 
 }

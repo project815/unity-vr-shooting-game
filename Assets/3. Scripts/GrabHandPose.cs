@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GrabHandPose : MonoBehaviour
 {
-    public AnimateHandOnInput rightHandPose;
+    public HandData rightHandPose;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +18,16 @@ public class GrabHandPose : MonoBehaviour
 
     public void SetupPose(BaseInteractionEventArgs arg)
     {
-        if(arg.interactableObject is XRBaseController)
+        if(arg.interactableObject is XRDirectInteractor)
         {
-            AnimateHandOnInput HandData = arg.interactableObject.transform.GetComponent<AnimateHandOnInput>();
-
-            HandData.handAnimator.enabled = false;
+            HandData HandData = arg.interactableObject.transform.GetComponentInChildren<HandData>();
+            
+            HandData.animator.enabled = false;
         }
+    }
+
+    public void SetHandDataValues(HandData h1, HandData h2)
+    {
+        
     }
 }
